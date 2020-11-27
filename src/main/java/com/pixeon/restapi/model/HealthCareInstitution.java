@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,4 +21,8 @@ public class HealthCareInstitution {
     private String name;
 
     private String cnpj;
+
+    @Column(name = "pixeon_coins")
+    private Double pixeonBudget;
+
 }

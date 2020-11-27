@@ -17,12 +17,16 @@ public class Exam {
     private Integer id;
 
 
+    @JoinColumn(name = "healthcareIntitution_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    private HealthCareInstitution healthCareInstitution;
+
     @JoinColumn(name = "patient_id")
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Patient patient;
 
     @JoinColumn(name = "physician_id")
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Physician physician;
 
     @Column(name = "procedure_name")

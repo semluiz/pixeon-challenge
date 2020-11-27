@@ -20,7 +20,14 @@ public class ExamController {
     @PostMapping("/exam")
     public ResponseEntity<?> save(@RequestBody Exam exam) {
         try {
-            return new ResponseEntity<>(examRepository.save(exam), HttpStatus.OK);
+            Double budget = exam.getHealthCareInstitution().getPixeonBudget();
+            String message = "the institution need at least 20 pixeon coins";
+            if (budget >= 20.00) {
+                exam.getHealthCareInstitution().setPixeonBudget(exam.getHealthCareInstitution().getPixeonBudget() - 1);
+                return new ResponseEntity<>(examRepository.save(exam), HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+            }
         } catch (Exception e) {
             e.getMessage();
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -30,6 +37,7 @@ public class ExamController {
     @GetMapping("/exams")
     public ResponseEntity<?> listAll() {
         try {
+
             List<Exam> exams = examRepository.findAll();
             return new ResponseEntity<>(exams, HttpStatus.OK);
         } catch (Exception e) {
@@ -61,14 +69,13 @@ public class ExamController {
     }
 
 
-
     @DeleteMapping("exam/{id}")
-    public ResponseEntity<?> deleteById(@PathVariable (value = "id") Integer id){
-        try{
+    public ResponseEntity<?> deleteById(@PathVariable(value = "id") Integer id) {
+        try {
             examRepository.deleteById(id);
             String message = "Item excluido com sucesso";
             return new ResponseEntity<>(message, HttpStatus.OK);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.getMessage();
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }

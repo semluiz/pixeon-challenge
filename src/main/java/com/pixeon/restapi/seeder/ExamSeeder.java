@@ -41,10 +41,7 @@ public class ExamSeeder {
     }
 
     private void creatingExams() {
-        HealthCareInstitution healthCareInstitution1 = new HealthCareInstitution();
-        healthCareInstitution1.setName("Clinica Especializada Embu");
-        healthCareInstitution1.setCnpj("22.222.222/2222-22");
-        healthCareInstitutionRepository.save(healthCareInstitution1);
+
 
         Patient patient1 = new Patient();
 
@@ -52,6 +49,15 @@ public class ExamSeeder {
         patient1.setName("Lucas Luiz");
         patient1.setSexo(Sexo.M);
         patientRepository.save(patient1);
+
+        HealthCareInstitution healthCareInstitution1 = new HealthCareInstitution();
+        healthCareInstitution1.setName("Clinica Especializada Embu");
+        healthCareInstitution1.setCnpj("22.222.222/2222-22");
+        healthCareInstitution1.setPixeonBudget(37.00);
+
+        healthCareInstitutionRepository.save(healthCareInstitution1);
+
+
 
         Physician physician1 = new Physician();
         physician1.setName("Doutor Philip");

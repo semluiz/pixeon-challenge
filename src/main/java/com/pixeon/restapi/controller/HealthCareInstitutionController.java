@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -19,7 +20,7 @@ public class HealthCareInstitutionController {
     private HealthCareInstitutionRepository healthCareInstitutionRepository;
 
     @PostMapping("/healthcare")
-    public ResponseEntity<?> save(@RequestBody HealthCareInstitution healthCareInstitution) {
+    public ResponseEntity<?> save(@RequestBody HealthCareInstitution healthCareInstitution, @RequestParam("pixelCoins")BigDecimal pixelCoins) {
         try {
             return new ResponseEntity<>(healthCareInstitutionRepository.save(healthCareInstitution), HttpStatus.OK);
         } catch (Exception e) {
