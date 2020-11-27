@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "exam-api")
+@RequestMapping(value = "exam-webservice")
 public class ExamController {
     @Autowired
     private ExamRepository examRepository;

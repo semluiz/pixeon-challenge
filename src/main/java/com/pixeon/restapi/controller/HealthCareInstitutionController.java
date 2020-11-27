@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "healthCare-api")
+@RequestMapping(value = "healthCare-webservice")
 public class HealthCareInstitutionController {
 
     @Autowired

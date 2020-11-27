@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/patient-api")
+@RequestMapping(value = "/patient-webservice")
 public class PatientController {
 
     @Autowired
@@ -41,7 +41,7 @@ public class PatientController {
 
 
     @GetMapping("/patient/{id}")
-    public ResponseEntity<?> getById(@PathVariable(value = "id") Integer id) {
+    public ResponseEntity<?> findById(@PathVariable(value = "id") Integer id) {
         try {
             return new ResponseEntity<>(patientRepository.findById(id), HttpStatus.OK);
         } catch (Exception e) {
