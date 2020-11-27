@@ -29,6 +29,7 @@ public class HealthCareInstitutionSeeder {
         healthCareInstitution1.setName("Clinica Especializada Cotia");
         healthCareInstitution1.setCnpj("99.999.999/9999-99");
         healthCareInstitution1.setPixeonBudget(21.00);
+        healthCareInstitution1.setRequests(0);
 
         repository.save(healthCareInstitution1);
 
@@ -37,6 +38,8 @@ public class HealthCareInstitutionSeeder {
         healthCareInstitution2.setName("Clinica Especializada São Paulo");
         healthCareInstitution2.setCnpj("88.888.888/8888-88");
         healthCareInstitution2.setPixeonBudget(82.00);
+        healthCareInstitution2.setRequests(0);
+
 
         repository.save(healthCareInstitution2);
 

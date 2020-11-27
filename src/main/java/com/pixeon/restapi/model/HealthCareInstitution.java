@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "healthcare_institution")
@@ -24,5 +21,9 @@ public class HealthCareInstitution {
 
     @Column(name = "pixeon_coins")
     private Double pixeonBudget;
+
+    private Integer requests;
+
+
 
 }

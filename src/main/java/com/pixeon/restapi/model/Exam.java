@@ -1,14 +1,12 @@
 package com.pixeon.restapi.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+
 import lombok.NoArgsConstructor;
-import com.pixeon.restapi.model.Patient;
 import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Entity
 public class Exam {
 
@@ -31,4 +29,44 @@ public class Exam {
 
     @Column(name = "procedure_name")
     private String procedureName;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public HealthCareInstitution getHealthCareInstitution() {
+        return healthCareInstitution;
+    }
+
+    public void setHealthCareInstitution(HealthCareInstitution healthCareInstitution) {
+        this.healthCareInstitution = healthCareInstitution;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Physician getPhysician() {
+        return physician;
+    }
+
+    public void setPhysician(Physician physician) {
+        this.physician = physician;
+    }
+
+    public String getProcedureName() {
+        return procedureName;
+    }
+
+    public void setProcedureName(String procedureName) {
+        this.procedureName = procedureName;
+    }
 }
