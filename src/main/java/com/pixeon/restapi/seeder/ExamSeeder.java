@@ -14,12 +14,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Component
 @Slf4j
+@Transactional
 public class ExamSeeder {
     @Autowired
     ExamRepository examRepository;
@@ -33,18 +35,10 @@ public class ExamSeeder {
     @Autowired
     PhysicianRepository physicianRepository;
 
-//    @EventListener
-//    private void seedExam(ContextRefreshedEvent event) {
-//        try {
-//            log.info("creating Exams....");
-//            creatingExams();
-//        } catch (Exception e) {
-//            e.getMessage();
-//        }
-//    }
+
 
     @EventListener
-    private void seedExam(ContextRefreshedEvent event) {
+    public void seedExam(ContextRefreshedEvent event) {
         try {
             log.info("creating exams............");
             creatingExams();
